@@ -2,132 +2,197 @@
 /* Vlastnosti co se aplikuji na vsechny styly */
 /* Pouzivame k tomu abychom "ocistili" defaultni stylovani 
 nekterych prvku a tak nam zjednodusili praci (vsechno se chova stejne) */ 
-
 * {
     box-sizing: border-box; /* padding a border se zapocitavaji do sirky boxu */
     padding: 0;             /* zadny padding */
     margin: 0;              /* zadny margin */
     border: none;           /* zadny border */
     font-size: 14pt;        /* normalni body text */
-    /* display: block; */
     
     line-height: 1.40;
-    /* font-family: 'Crimson Text', serif; */
     font-family: 'Crimson Pro', serif;
 }
 
 a {
     display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 img {
-    /* max-width: 100%; */
     width: 100%;
-}
-
-body {
-    background-color: rgb(218, 221, 231);    
-    display: flex;
-    flex-direction: column;
     height: 100%;
-}
-
-header {
-    max-width: 30cm;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem;
-
-    background-color: rgb(41, 44, 54);
-    color: white;
-}
-
-main {
-    max-width: 30cm;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem;
-    padding-top: 2rem;
-
-    background-color: rgb(255, 255, 255);
-}
-
-footer {
-    flex-grow: 1;
-    width: 100%;
-    max-width: 30cm;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem;
-    
-    background-color: rgb(41, 44, 54);
-    color: white;
 }
 
 ul {
     list-style: none;
 }
 
+
+/* Macro rozdeleni stranky */
+body {
+    background-color: rgb(215, 215, 215);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    background-color: rgb(28, 28, 28);
+    color: white;
+}
+
+main {
+    background-color: rgb(255, 255, 255);
+}
+
+footer {
+    flex-grow: 1;
+    background-color: rgb(28, 28, 28);
+    color: white;
+}
+
+/* Gloablni styly */
+.page_center {
+    /* Nastavi elementu nejvetsi moznou sirku ale ne vic jak 30cm */
+    width: 100%;
+    max-width: 30cm;
+
+    /* Zbytek mista nezaplneny sirkou pouzije jako margin */
+    /* => zarovna sebe sama na stred */
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 1rem;
+}
+
+.main_section {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 3rem;
+}
+
 .text {
-    font-weight: 400;
-    /* font-family: 'Crimson Pro', serif; */
     font-family: 'Crimson Text', serif;
+    font-weight: 400;
 }
 
 .title {
-    font-size: 23pt;
-    font-weight: 700;
     font-family: 'Chivo Mono', monospace;
+    font-weight: 400;
+    font-size: 27pt;
+    
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
 }
 
-.header__logo {
-    filter: invert(99%) sepia(100%) saturate(0%) hue-rotate(358deg) brightness(110%) contrast(101%);
+/* Styly na kazdou sekci zvlast */
+.header__img {
+    width: 3rem;
+    height: 3rem;
 }
 
 .header__nav {
+    /* Misto normalniho razeni prvku v tomto elementu pod sebou nastavi */
+    /* razeni vedle sebe */
     display: flex;
+    /* Pokud dojde misto (na mobilu nebo moc textu) bude radit prvky pod sebou */
     flex-wrap: wrap;
-    align-items: baseline;
+    
+    /* Vertikalne zarovna prvky na stred (aby logo nebylo moc dole) */
+    align-items: center;
 
+    /* vertikalne zarovna prvky na radek - casto uzitecne */
+    /* align-items: baseline; */ 
+
+    /* vysvetleno u stylu .header__nav > * {...} */
     margin: -0.5rem;
 }
 
-.header__nav a {
-    padding: 0.5rem;
-    color: white;
-    text-decoration: none;
-    font-size: 13pt;
+.header__nav > * {
+    font-size: 14pt;
     font-weight: bold;
+
+    /* ke kazdemu prvku vlozi 0.5 rem mista z kazde strany */
+    /* to znamena ze mezi kazdymi dvema prvky bude 1rem mista */
+
+    /* To ale znamena ze nyni prvky nebudou zacinat tam kde by meli! */
+    /*     0  (zacatek stranky)                             */
+    /*     |------------------- HEADER -------------------  */
+    /*     | 0.5 [prvek1] 0.5 0.5 [prvek2] 0.5 0.5 ...   |  */
+    /*     |----------------------------------------------  */
+
+    /* Proto od CELEHO headeru oddecteme prebytecne misto na druhou stranu*/
+    /* a tim ho zarovname zpet! */
+
+    /*     0  (zacatek stranky)                        */
+    /*|----|-------------- HEADER -------------------  */
+    /*| 0.5|[prvek1] 0.5 0.5 [prvek2] 0.5 0.5 ...   |  */
+    /*|----|-----------------------------------------  */
+    padding: 0.5rem; /* Pouzivame padding a ne margin abychom zvetsili mozne klikaci misto odkazu */
 }
 
-.header__nav a:hover {
-    text-decoration: underline;
+.main_title {
+    font-size: 40pt;
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    font-weight: 400;
+}
+
+.banner {
+    width: 100%;
+    height: 30rem;
+    margin-bottom: 3rem;
+}
+
+.banner__img {
+    object-fit: cover;
 }
 
 .image_paragraph__columns {
+    /* Stejny trik jako u header__nav, galerie, atd... */
     display: flex;
     flex-wrap: wrap;
     margin: -0.5rem;
-    margin-bottom: 2rem;
 }
 
 .image_paragraph__columns > * {
+    /* Nastavi defaultni sirku kazdeho sloupce na 20rem */
+    /* Pokud ve sloupci neni misto alespeon 20rem sloupec se zalomi */
     flex-basis: 20rem;
+
+    /* Da moznost sloupci "rust" z 20rem na libovolnou velikost */
     flex-grow: 1;
     
     padding: 0.5rem;
 }
 
-.full_text_paragraph__text {
-    margin-bottom: 2rem;
+/* Pop out */
+.pop_out {
+    background-color: #f5ede4;
+    padding: 2rem;
+}
+
+.pop_out__text {
+    /* Nastavi textu 2 sloupce */
+    /* Toto jsou jine sloupce nez jsme delali doposud pomoci display:flex */
+    /* tim ze se automaticky balancuji tak aby text byl vice mene vyvazeny v obou dvou */
+    /* Hodi se vice mene pouze na text */
     columns: 2;
     column-gap: 1rem;
+
+    /* Minimalni srika sloupce; Pokud je sloupec mensi oba sloupce se spoji v jeden */
     column-width: 20rem;
 }
 
+/* Gallerie */
 .gallery__columns {
+    /* Stejny trik jako u .header__nav, .image_paragraph__columns atd... */
     display: flex;
     flex-wrap: wrap;
     margin: -0.5rem;
@@ -135,40 +200,121 @@ ul {
 
 .gallery__columns > * {
     padding: 0.5rem;
+
+    /* Minimalni sirka jedne tabulky a rust*/
     flex-basis: 10rem;
     flex-grow: 1;
+
+    /* Nastavi i vysku pevne na 10rem */
+    /* toto nemusi vzdy byt idealni reseni ale zde funguje velmi dobre! */
     height: 10rem;
 }
 
+.gallery__columns a {
+    /* Nastavi linku aby se choval jakoby tam nebyl */
+    /* (plne vyplni ramecek) */
+    width: 100%;
+    height: 100%;
+}
+
 .gallery__img {
+    /* Obrazek ma plne vyplnit ramecek a oriznout */
+    /* se tak aby se tam perfektne vesel */
     object-fit: cover;
     width: 100%;
     height: 100%;
 }
 
 .gallery__padding {
+    /* Toto jsou prvky pridane na konec galerie tak aby */
+    /* radek ve kterem je mene se porad choval normalne */
+
+    /* Pokud mame 4 obrazky na radek a v galerii 6 obrazku situace vypada nasledovne */
+    /* [obr1] [obr2] [obr3] [obr4] */
+    /* [   obr5    ] [    obr6   ] */
+
+    /* To je kvuli tomu ze kazdy ramecek galeri ma flex-grow: 1; a tak si vezme */
+    /* vsechen prostor co muze. Situaci muzeme vyresit tak ze na konec listu pridame prvky */
+    /* ktere nejsou videt ale s ramecky se budou "prat" o jejich misto tak aby sirka byla */
+    /* to co ocekavame */
+
+    /* [obr1] [obr2] [obr3] [obr4] */
+    /* [obr5] [obr6] [pad1] [pad2] */
+    /* [    pad3   ] [   pad4    ] */
+
+    /* Nyni kdyz nastavime viksu a sirku vsech [padX] na 0 zmizi a my zikame jen to co chceme. */
     width: 0;
     height: 0;
 }
 
-.pantheon__title {
+.contacts__columns {
+    /* Stejny trik jako u .header__nav, .image_paragraph__columns atd... */
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.5rem;
+}
+
+.contacts__columns > * {
+    padding: 0.5rem;
+    flex-basis: 20rem;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.contacts__frame {
+    flex-basis: 15rem;
+    flex-grow: 0.5;
+}
+
+.contacts__img {
+    /* Vyplni ramecek s minimalni vyskou 30rem*/
+    object-fit: cover;
+    min-height: 30rem;
+
+    /* Pri orezavani obrazku se obrazek orezava tak */
+    /* aby jeho levy okraj byl vzdy videt */
+    object-position: left;
+}
+
+.contacts__entries {
+    margin-top: 2rem;
+    padding-left: 1rem;
+    list-style: disc;
+}
+
+.contacts__entries li {
+    margin-top: 2rem;
+    color: #dea02d;
+}
+
+.contacts__entries li * {
+    color: black;
+
+    /* Vsem prvkum v jenom radku da se maji chovat jako text */
+    /* toto je dalsi zpusob delani display:flex; ale obcas se hodi vic */
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.contacts__entries .name {
+    font-size: 17pt;
+    margin-bottom: 0;
+}
+
+.footer__title {
     margin-bottom: 1rem;
 }
 
-.pantheon__columns {
+.footer__columns {
+    /* Znovu auto balancovaci sloupce protoze jsou */
+    /* jednodussi */
     columns: 2;
     column-gap: 1rem;
     column-width: 20rem;
 }
 
-.pantheon a {
+.footer__columns a {
     padding-bottom: 0.5rem;
-    color: white;
-    text-decoration: none;
     font-size: 13pt;
     font-family: 'Chivo Mono', monospace;
-}
-
-.pantheon a:hover {
-    text-decoration: underline;
 }

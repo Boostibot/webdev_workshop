@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+            Ukazkova strnka pro workshop na SUPS Praha. 
+            Pokud mate jakekoliv otazky kontaktujte me na jakubekkrystof@gamil.com nebo pres facebook messenger.
+
+            Uzitecne odkazy pro hledani informaci o html a css (ale google funguje nejlip!): 
+            - mozilla.org
+            - jakpsatweb.cz
+            - w3schools.css
+        -->
+        
+        <!-- Titulek a icony co se zobrazi v horni liste -->
+        <title>
+            Portfolio
+        </title>
+        <link rel="icon" href="https://www.sups.cz/v2018/soubory/2021/02/cropped-logo-sups-transparent-32x32.png" sizes="32x32">
+        <link rel="icon" href="https://www.sups.cz/v2018/soubory/2021/02/cropped-logo-sups-transparent-192x192.png" sizes="192x192">
+
+        <!-- Importovani nasehi stylu -->
+        <link rel="stylesheet" href="style.css">
+        
+        <!-- Importovani fontu z google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,400;0,600;1,200&family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+        <!-- Script na otevirani fotek z galerie -->
+        <link href="external/css/lightbox.css" rel="stylesheet" />
+        <script src="external/js/lightbox-plus-jquery.js"></script>
+
+        <!-- Urychli skript otevirani fotek -->
+        <script>
+            lightbox.option({
+              'resizeDuration': 200,
+              'fadeDuration': 200,
+              'imageFadeDuration': 0,
+              'wrapAround': true
+            })
+        </script>
+
+        <!-- Nastavi mobilnim razizenim ocekavanou velikost strany. Nevim proc je potreba ale je potreba. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    </head>
+
+    <!-- Body rozdelene na header, main a footer -->
+    <body>
+        <header>
+            <div class="page_center">
+                <!-- Element nav rika googlu a prohlizeci ze tyto odkazy jsou -->
+                <!-- dulezita navigace po strance. --> 
+                <!-- (Google z tohoto generuje odkazdy co zobrazuje pod hlavni strankou pri hledani trbe sups.cz) -->
+                <nav class="header__nav">
+                    <a href="main.html">
+                        <img src="images/logo.svg" class="header__img">
+                    </a>
+
+                    <a class="title" href="main.html">Home</a>
+                    <a class="title" href="main.html">Projects</a>
+                    <a class="title" href="main.html">Work</a>
+                    <a class="title" href="main.html">Contacts</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main se typicky deli na sekce. Kazda sekce by mela mit titulek nebo text co se -->
+        <!-- jako titulek chova! -->
+        <main class="page_center">
+            <!-- Hlavni titulek cele stranky. Strnka by mela mit pouze 1 titulek h1 -->
+            <h1 class="main_title title">
+                Portfolio 2023
+            </h1>
+
+            <section class="banner">
+                <img src="images/banner.jpg" class="banner__img">
+            </section>
+
+            <section class="image_paragraph main_section">
+                <h3 class="title">
+                    Image paragraph
+                </h3>
+                <div class="image_paragraph__columns">
+                    <a href="images/img1.jpg" data-lightbox="image_paragraph__img">
+                        <img src="images/img1.jpg" class="image_paragraph__img">
+                    </a>
+                    
+                    <p>
+                        Integer a quam sit amet nisl euismod porttitor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; <i>Curabitur ex sem, venenatis porta dui efficitur, pretium faucibus lacus.</i> Pellentesque commodo volutpat urna, ac laoreet felis sollicitudin quis. Morbi fringilla dolor quis tortor aliquam, eget egestas augue euismod. Donec tempor condimentum diam in ultricies. Pellentesque non fringilla nisl.
+                    </p>
+                </div>
+            </section>
+            
+            <section class="pop_out main_section">
+                <h3 class="title">
+                    Toys toys toys
+                </h3>
+
+                <div class="pop_out__text">
+                    <p>
+                        Aenean at neque posuere libero faucibus molestie sed id diam. Duis convallis nisi sit amet enim vulputate, quis vehicula lacus pharetra. Pellentesque consectetur diam ut tincidunt varius. Phasellus ante justo, condimentum sed erat nec, suscipit fermentum tortor. Sed molestie libero cursus, volutpat nisl nec, maximus ipsum. Ut lorem dolor, suscipit ut tincidunt in, gravida non felis. Nulla vestibulum pretium nisi semper sagittis.
+                    </p>
+                       
+                    <p> 
+                        Proin rutrum sed nisl quis tempus. In sed metus nibh. Aliquam facilisis sapien nec sem faucibus hendrerit at sed eros. Aenean in rhoncus quam. Vestibulum tempor fringilla libero. Fusce maximus mauris sit amet lacinia ultrices. Sed ut augue ut odio ultricies pellentesque at in augue. <i>In arcu orci, efficitur quis ipsum sit amet, condimentum mattis mi.</i> Etiam molestie ante sit amet leo vestibulum sollicitudin. Etiam molestie augue eu scelerisque vehicula. Proin sed massa neque. Quisque convallis nec metus eget molestie. Donec non dolor vitae mi rutrum tincidunt. 
+                    </p>
+                </p>
+            </section>
+            
+            <section class="gallery main_section">
+                <h3 class="title">
+                    Gallery
+                </h3>
+
+                <ul class="gallery__columns">
+                    <li>
+                        <a href="images/img1.jpg" data-lightbox="gallery">
+                            <img src="images/img1.jpg" class="gallery__img">
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="images/img2.jpg" data-lightbox="gallery">
+                            <img src="images/img2.jpg" class="gallery__img">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="images/img3.jpg" data-lightbox="gallery">
+                            <img src="images/img3.jpg" class="gallery__img">
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="images/img4.jpg" data-lightbox="gallery">
+                            <img src="images/img4.jpg" class="gallery__img">
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="images/img1.jpg" data-lightbox="gallery">
+                            <img src="images/img1.jpg" class="gallery__img">
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="images/img2.jpg" data-lightbox="gallery">
+                            <img src="images/img2.jpg" class="gallery__img">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="images/img3.jpg" data-lightbox="gallery">
+                            <img src="images/img3.jpg" class="gallery__img">
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="images/img4.jpg" data-lightbox="gallery">
+                            <img src="images/img4.jpg" class="gallery__img">
+                        </a>
+                    </li>
+                    
+                    <!-- extra prvky pro rozumne zalamovani ramecku. -->
+                    <!-- Podivejte se do style.css pro vysvetleni -->
+                    <li class="gallery__padding"></li>
+                    <li class="gallery__padding"></li>
+                    <li class="gallery__padding"></li>
+                    <li class="gallery__padding"></li>
+                </ul>
+            </section>
+        
+            <section class="contacts main_section">
+                <div class="contacts__columns">
+                    <div class="contacts__text">
+                        <h3 class="title">
+                            Contact us
+                        </h3>
+
+                        <p>
+                            Integer a quam sit amet nisl euismod porttitor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+                        </p>
+
+                        <ul class="contacts__entries">
+                            <li>
+                                <span class="name title">Barbora Jakubkova</span>
+                                <br>
+                                <span>Garant predmetu</span>
+                                <a href="tel:+420-737-039-890">+420 737 039 890</a>
+                                <a href="mailto:info@gmail.com">info@gmail.com</a>
+                            </li>
+                            
+                            <li>
+                                <span class="name title">Barbora Jakubkova</span>
+                                <br>
+                                <span>Garant predmetu</span>
+                                <a href="tel:+420-737-039-890">+420 737 039 890</a>
+                                <a href="mailto:info@gmail.com">info@gmail.com</a>
+                            </li>
+                            
+                            <li>
+                                <span class="name title">Barbora Jakubkova</span>
+                                <br>
+                                <span>Garant predmetu</span>
+                                <a href="tel:+420-737-039-890">+420 737 039 890</a>
+                                <a href="mailto:info@gmail.com">info@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contacts__frame">
+                        <img src="images/wide_shot.jpg" class="contacts__img">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="page_center">
+                <h2 class="footer__title title">
+                    Pantheon
+                </h2>
+                
+                <nav class="footer__columns">
+                    <a href="main.html">Home</a>
+                    <a href="main.html">Projects</a>
+                    <a href="main.html">Work</a>
+                    <a href="main.html">Contacts</a>
+                    <a href="main.html">About us</a>
+                    <a href="main.html">Legal info</a>
+                    <a href="tel:+420-737-039-890">+420 737 039 890</a>
+                    <a href="mailto:info@gmail.com">info@gmail.com</a>
+                </nav>
+            </div>
+        </footer>
+    </body>
+</html>
